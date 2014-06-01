@@ -38,9 +38,9 @@ rankhospital <- function(state, outcome, num = "best")
         }
         else
         {
-                table <- table[complete.cases(table), ]
-                table <- table[order(table[, colIndex], table[, 2]), ]
-                if(num > nrow(table)) NA
+                table <- table[complete.cases(table), ]         #remove incomplete cases.
+                table <- table[order(table[, colIndex], table[, 2]), ]     #order table.
+                if(num > nrow(table)) NA   
                 else table[num, 2]
         }
         
