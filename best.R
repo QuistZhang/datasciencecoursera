@@ -26,18 +26,18 @@ best <- function(state, outcome)
         #        print(min(table[, 17], na.rm = TRUE))
         #}
 	
-        rowIndex = NA
+        colIndex = NA
 	min = NA
         if(outcome=='heart attack')
-                rowIndex = 11
+                colIndex = 11
         else if(outcome=='heart failure')
-                rowIndex = 17
+                colIndex = 17
         else if(outcome=='pneumonia')
-                rowIndex = 23
+                colIndex = 23
 	
         #Calculate the min value of death rate for a specific outcome.
-        min = min(table[, rowIndex], na.rm = TRUE)
+        min = min(table[, colIndex], na.rm = TRUE)
         
         #Only keep the hopital which have the least death rate and then sort them by name.
-	as.character(head(sort(table[table[, rowIndex] == min, 2]), n=1))
+	as.character(head(sort(table[table[, colIndex] == min, 2]), n=1))
 }
